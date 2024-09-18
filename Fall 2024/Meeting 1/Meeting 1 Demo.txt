@@ -1,0 +1,27 @@
+conda create --name default-env
+conda activate default-env
+conda install numpy
+python3
+import numpy as np
+np.zeros(3)
+np.zeros([2, 4])
+T = np.ones([3, 1, 5])
+T.size
+T.ndims
+T.shape
+T.dtype
+A = np.array([[1, 1, 1], [2, 2, 2], [3, 3, 3]])
+A
+x = np.array([4, 5, 6])
+x
+y = np.array([[4], [5], [6]])
+y
+z = np.array([[4, 5, 6]])
+z
+A * x # Not what you think it is
+np.matmul(A, x)
+A * y # Not what you think it is
+np.matmil(A, y)
+A * z # Not what you think it is
+np.matmil(A, z)
+3 * A
