@@ -21,7 +21,8 @@ z
 A * x # Not what you think it is
 np.matmul(A, x)
 A * y # Not what you think it is
-np.matmil(A, y)
+np.matmul(A, y)
 A * z # Not what you think it is
-np.matmil(A, z)
+np.matmul(A, z)
 3 * A
+Show how to set up GitHub...
