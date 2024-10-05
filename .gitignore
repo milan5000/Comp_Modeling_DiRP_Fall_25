@@ -5,3 +5,5 @@
 *.bib
 *.blg
 *.log
+
+__pycache__

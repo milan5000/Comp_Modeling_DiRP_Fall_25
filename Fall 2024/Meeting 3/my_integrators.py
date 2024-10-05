@@ -21,9 +21,9 @@ def ode_integrator(method: str, f, tspan: tuple, x0t, dt: float):
     while t < tspan[1]:
         if method == 'explicit_euler':
             x = explicit_euler_step(f, x, t, dt)
-        else if method == 'explicit_rk2_step':
+        else if method == 'explicit_rk2':
             x = explicit_rk2_step(f, x, t, dt)
-        else if method == 'explicit_rk4_step':
+        else if method == 'explicit_rk4':
             x = explicit_rk4_step(f, x, t, dt)
         else:
             raise Exception(f'{method} is not defined within my_integrators!')
