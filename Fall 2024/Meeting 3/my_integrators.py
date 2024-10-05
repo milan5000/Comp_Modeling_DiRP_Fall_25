@@ -19,12 +19,12 @@ def ode_integrator(method: str, f, tspan: tuple, x0t, dt: float):
     ts = [tspan[0]] # Might be prudent to pre-allocate these arrays
     xs = [x0]
     while t < tspan[1]:
-        if method == 'euler_step':
-            x = euler_step(f, x, t, dt)
-        else if method == 'rk2_step':
-            x = rk2_step(f, x, t, dt)
-        else if method == 'rk4_step':
-            x = rk4_step(f, x, t, dt)
+        if method == 'explicit_euler':
+            x = explicit_euler_step(f, x, t, dt)
+        else if method == 'explicit_rk2_step':
+            x = explicit_rk2_step(f, x, t, dt)
+        else if method == 'explicit_rk4_step':
+            x = explicit_rk4_step(f, x, t, dt)
         else:
             raise Exception(f'{method} is not defined within my_integrators!')
         t += dt
@@ -33,7 +33,7 @@ def ode_integrator(method: str, f, tspan: tuple, x0t, dt: float):
     return (ts, xs)
     
     
-def euler_step(f, xn, tn: float, dt: float):
+def explicit_euler_step(f, xn, tn: float, dt: float):
     """Apply the Forward Euler integration method for one step.
     
     Arguments:
@@ -46,7 +46,7 @@ def euler_step(f, xn, tn: float, dt: float):
     The dependent variable(s) at the next step."""
     return xn + dt * f(tn, xn)
     
-def rk2_step(f, xn, tn: float, dt: float):
+def explicit_rk2_step(f, xn, tn: float, dt: float):
     """Apply the Runge-Kutta 2 integration method for one step.
     
     Arguments:
@@ -62,7 +62,7 @@ def rk2_step(f, xn, tn: float, dt: float):
     k2 = f(tn + dt / 2, xn + dt * k1 / 2)
     return xn + dt * k2
 
-def rk4_step(f, xn, tn: float, dt: float):
+def explicit_rk4_step(f, xn, tn: float, dt: float):
     """Apply the Runge-Kutta 4 integration method for one step.
     
     Arguments:
