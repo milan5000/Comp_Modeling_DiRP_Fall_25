@@ -1,6 +1,6 @@
 import numpy as np
 
-def ode_integrator(method: str, f, tspan: tuple, x0: np.ndarray, dt: float):
+def ode_integrator(method: str, f, tspan: tuple, x0t, dt: float):
     """Integrate a system of ODE's using the forward Euler method.
     
     Arguments:
@@ -34,20 +34,47 @@ def ode_integrator(method: str, f, tspan: tuple, x0: np.ndarray, dt: float):
     
     
 def euler_step(f, xn, tn: float, dt: float):
-    """Apply the Forward Euler method for one time step."""
+    """Apply the Forward Euler integration method for one step.
+    
+    Arguments:
+    f: a scalar- or vector-valued differential equation in the form f(t, x)
+    xn: the value of the dependent variable(s) at the current step
+    tn: the value of the independent variable at the current step
+    dt: the step size
+    
+    Returns:
+    The dependent variable(s) at the next step."""
     return xn + dt * f(tn, xn)
     
 def rk2_step(f, xn, tn: float, dt: float):
-    """Apply the Runge-Kutta 2 method for one time step."""
+    """Apply the Runge-Kutta 2 integration method for one step.
+    
+    Arguments:
+    f: a scalar- or vector-valued differential equation in the form f(t, x)
+    xn: the value of the dependent variable(s) at the current step
+    tn: the value of the independent variable at the current step
+    dt: the step size
+    
+    Returns:
+    The dependent variable(s) at the next step."""
     # This is just the midpoint method!
     k1 = f(tn, xn)
     k2 = f(tn + dt / 2, xn + dt * k1 / 2)
     return xn + dt * k2
 
 def rk4_step(f, xn, tn: float, dt: float):
-    """Apply the Runge-Kutta 4 method for one time step."""
+    """Apply the Runge-Kutta 4 integration method for one step.
+    
+    Arguments:
+    f: a scalar- or vector-valued differential equation in the form f(t, x)
+    xn: the value of the dependent variable(s) at the current step
+    tn: the value of the independent variable at the current step
+    dt: the step size
+    
+    Returns:
+    The dependent variable(s) at the next step."""
     k1 = f(tn, xn)
     k2 = f(tn + dt / 2, xn + dt * k1 / 2)
-    k3 = f(tn + dt / 2, xn + dt * k3 / 2)
+    k3 = f(tn + dt / 2, xn + dt * k2 / 2)
     k4 = f(tn + dt, xn + dt * k3)
     return xn + dt / 6 * (k1 + 2 * k2 + 2 * k3 + k4)
