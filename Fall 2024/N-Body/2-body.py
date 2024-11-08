@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from my_integrators import ode_integrator
 from scipy.integrate import solve_ivp
 
+
+
 def main():
     # Define parameters
     # If I knew Jupyter notebook well, it would come in handy here. This is a
