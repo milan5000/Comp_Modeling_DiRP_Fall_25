@@ -69,6 +69,9 @@ def main():
                 else:
                     output_file.write(f'{u[6 * i + j]}')
         output_file.close()
+    
+    # That's it!
+    # Notice that postprocessing is being offloaded elsewhere!
 
 
 
