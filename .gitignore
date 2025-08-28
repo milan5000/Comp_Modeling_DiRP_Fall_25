@@ -5,5 +5,7 @@
 *.bib
 *.blg
 *.log
+*.out
+*.synctex.gz
 
 __pycache__
