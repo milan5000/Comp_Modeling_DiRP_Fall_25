@@ -34,15 +34,23 @@ def main():
         u += line[1:7]
         nb += 1
     initial_file.close()
+    u = np.array(u)
+    print(u)
     
     def f(t, u):
         # For i in len/6
         # Apply gravitational forces from EVERY OTHER BODY to this
         # Or is there a more effiecient way to do this...?
         # What expression do I subtract?
-        # ???
-        # ???
-        # ???
+        du = np.zeros(u.size)
+        for i in range(nb):
+            # Every other body exerts a force on body i
+            du[(6 * i):(6 * (i + 1) - 3)] = u[(6 * i + 3):(6 * (i + 1))]
+            for j in range(nb):
+                if j != i:
+                    r = u[(6 * i):(6 * (i + 1) - 3)] - u[(6 * j):(6 * (j + 1) - 3)]
+                    r3 = np.dot(r, r) ** 1.5 + 0.0000001
+                    du[(6 * i + 3):(6 * (i + 1))] += - G * ms[j] / r3 * r
         return 0
     
     # Solve
@@ -55,12 +63,12 @@ def main():
         t += dt
         
         # Calculate step
-        # u = ???
+        u = explicit_rk4_step(f, u, t, dt)
         
         # Write to case file
-        output_file = open(path / f'{n}')
-        for i in range(nb)
-            data = u[(6 * i):(7 * i)]
+        output_file = open(path / f'{n}', 'w')
+        for i in range(nb):
+            data = u[(6 * i):(6 * (i + 1))]
             for j in range(6):
                 if j < 5:
                     output_file.write(f'{u[6 * i + j]} ')
