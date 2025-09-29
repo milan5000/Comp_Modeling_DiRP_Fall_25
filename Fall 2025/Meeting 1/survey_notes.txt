@@ -1,0 +1,34 @@
+Survey Notes:
+
+Major
+- Mostly CS
+- Some other STEM
+
+Year
+- Freshmen, 1 senior
+	- Great to be interested in research early
+
+Interests
+- Solving ODEs/PDEs
+	- Yay
+- Monte Carlo simulations
+	- Can incorporate this
+- I'm not entirely sure which path I want to go after college but I want to code this stuff because I think it's cool, so I think it would be awesome if I could see some of the applications of computation modeling this semester.
+	- Gold star for you
+- ML
+	- Can incorporate some branches of ML, but not my specialty
+- Computational neuroscience, prosthetics, neuroengineering
+	- Sick, will get back to you
+
+Skills
+- Strengths: math foundations, high-level programming
+- Develop: more specialized math, engineering, command line
+
+Activities
+- Good: discussions, lectures, demos
+- Less popular: mentee presentations, reading
+
+Takeaways
+- Projects, beef up portfolio
+- Both exposure to research in general, exposure to computational modeling
+- Develop coding, math
