@@ -1,0 +1,21 @@
+Konstantinovsky - Mastering the SEIR Model
+
+Ashton's Notes
+- Compartamental model: population moves between definitive states
+- Does not directly account for
+	- People as discrete entities (agent-based modeling)
+	- Spatial dynamics, spread through proximity
+	- Population non-homogeneity (susceptibility, immunity, comorbitities, transmission promoting/preventing behaviors, social structures)
+	- Memory of when people were exposed/infected, distribution of transition times
+	- Uncertainty, randomness
+- Article says average infectious period is 10 days, implying 10% recovery each day, and gamma=0.1. Not so sure that this is right, because gamma is an *instantaneous* rate of change, not an average rate of change. Compare to dy/dt = r * y => y = C * e ^ (r * t) != (1 + r) ^ t.
+
+Questions for Discussion
+- What does the SEIR model assume?
+- What are limitations of the SEIR model?
+- How do you find transmission rate beta, exposed-to-infectious rate sigma, and recovery rate gamma?
+- Does the system guarantee that the total population is conserved?
+- Try de-dimensionalizing the equations. Does this change much? Do any interesting non-dimensional quantities pop up, e.g. R0 = beta / gamma.
+- SEIR is already an expansion upon SIR. Could other improvements/parameterizations be added to this model?
+
+Discussion Notes
