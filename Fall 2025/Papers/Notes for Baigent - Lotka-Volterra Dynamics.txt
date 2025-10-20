@@ -1,0 +1,22 @@
+Baigent - Lotka-Volterra Dynamics
+
+Ashton's Notes
+- Model is similar to SEIR in construction.
+- Exponential growth of each population.
+- Prey cause proportional growth in predators.
+- Predators cause proportional decline in prey.
+- Autonomous system.
+- Exact solution exists, but is defined implicitly as a family of level sets.
+- Phase plots show how neither species can go extinct, instability from small modifications of initial conditions.
+- Adding in logistic terms gets rid of oscillations, but adds in results like extinctions, population explosions.
+
+Questions for Discussion
+- What are the assumptions of the Lotka-Volterra model?
+- Why might we be interested in studying a model like this?
+- What is a phase plot? What can it tell us?
+- What might a phase plot for a pendulum look like?
+- Can either species die out?
+- How does modifying the coefficients change the solution?
+- How does modifying the initial conditions change the solution?
+
+Discussion Notes
