@@ -15,10 +15,10 @@ def ode_integrator(method: str, f, tspan: tuple, x0, dt: float):
     
     Note: this implementation is not necessarily recommended for large systems.
     """
-    t = tspan[0]
-    x = x0
-    ts = [tspan[0]] # Might be prudent to pre-allocate these arrays
-    xs = [x0]
+    t = tspan[0] # current time
+    x = x0 # current state
+    ts = [tspan[0]] # list of all time steps / Might be prudent to pre-allocate these arrays
+    xs = [x0] # list of all state values
     while t < tspan[1]:
         if method == 'explicit_euler':
             x = explicit_euler_step(f, x, t, dt)
@@ -28,9 +28,9 @@ def ode_integrator(method: str, f, tspan: tuple, x0, dt: float):
             x = explicit_rk4_step(f, x, t, dt)
         else:
             raise Exception(f'{method} is not defined within my_integrators!')
-        t += ???
-        ts += ???
-        xs += ???
+        t += dt
+        ts.append(t)
+        xs.append(x)
     return (ts, xs)
     
     
@@ -46,7 +46,7 @@ def explicit_euler_step(f, xn, tn: float, dt: float):
     Returns:
     The dependent variable(s) at the next step.
     """
-    return ???
+    return (xn + f(tn, xn)*dt)
     
 def explicit_rk2_step(f, xn, tn: float, dt: float):
     """Apply the Runge-Kutta 2 integration method for one step.
@@ -61,9 +61,9 @@ def explicit_rk2_step(f, xn, tn: float, dt: float):
     The dependent variable(s) at the next step.
     """
     # This is just the midpoint method!
-    k1 = ???
-    k2 = ???
-    return ???
+    k1 = dt * f(tn, xn)
+    k2 = dt * f(tn + dt, xn + k1)
+    return (xn + (k1 + k2)/2)
 
 def explicit_rk4_step(f, xn, tn: float, dt: float):
     """Apply the Runge-Kutta 4 integration method for one step.
@@ -77,8 +77,8 @@ def explicit_rk4_step(f, xn, tn: float, dt: float):
     Returns:
     The dependent variable(s) at the next step.
     """
-    k1 = ???
-    k2 = ???
-    k3 = ???
-    k4 = ???
-    return ???
+    k1 = f(tn, xn)
+    k2 = f(tn + dt/2, xn + dt*k1/2)
+    k3 = f(tn + dt/2, xn + dt*k2/2)
+    k4 = f(tn + dt, xn + dt*k3)
+    return (xn + (dt/6)*(k1 + 2*k2 + 2*k3 + k4))
